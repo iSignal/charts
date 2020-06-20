@@ -4,7 +4,7 @@
 Component: "yugabytedb"
 Image:
   repository: "isanketh/yugabyte"
-  tag: 2.1.8.0-ipv6-3
+  tag: 2.1.8.0-ipv6-4
   pullPolicy: IfNotPresent
 
 storage:
