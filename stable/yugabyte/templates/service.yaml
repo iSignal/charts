@@ -257,8 +257,7 @@ spec:
           - "--rpc_bind_addresses={{ printf "$(HOSTNAME).%s.$(NAMESPACE).svc.%s" .name $root.Values.domainName }}"
           - "--server_broadcast_addresses={{ printf "$(HOSTNAME).%s.$(NAMESPACE).svc.%s" .name $root.Values.domainName }}:7100"
           - "--webserver_interface=[::]"
-          - "--resolver_address_filter=ipv6_external,ipv6_non_link_local,ipv6_all"
-          - "--local_address_filter=ipv6_external,ipv6_non_link_local,ipv6_all"
+          - "--net_address_filter=ipv6_external,ipv6_non_link_local,ipv6_all"
           {{ if $root.Values.isMultiAz }}
           - "--master_addresses={{ $root.Values.masterAddresses}}"
           - "--replication_factor={{ $root.Values.replicas.totalMasters }}"
@@ -289,8 +288,7 @@ spec:
           - "--rpc_bind_addresses={{ printf "$(HOSTNAME).%s.$(NAMESPACE).svc.%s" .name $root.Values.domainName }}"
           - "--cql_proxy_bind_address={{ printf "$(HOSTNAME).%s.$(NAMESPACE).svc.%s" .name $root.Values.domainName }}"
           - "--webserver_interface=[::]"
-          - "--resolver_address_filter=ipv6_external,ipv6_non_link_local,ipv6_all"
-          - "--local_address_filter=ipv6_external,ipv6_non_link_local,ipv6_all"
+          - "--net_address_filter=ipv6_external,ipv6_non_link_local,ipv6_all"
           {{ if not $root.Values.disableYsql }}
           - "--enable_ysql=true"
           - "--pgsql_proxy_bind_address=[::]:5433"
